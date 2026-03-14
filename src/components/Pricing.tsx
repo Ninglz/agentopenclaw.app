@@ -67,13 +67,13 @@ export default function Pricing() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:items-stretch">
           {plans.map((plan) => (
             <div
               key={plan.name}
-              className={`relative rounded-xl border p-8 transition-all flex flex-col h-full ${
+              className={`relative rounded-xl border p-6 sm:p-8 transition-all flex flex-col h-full ${
                 plan.highlighted
-                  ? "border-[#7c3aed] bg-[#7c3aed]/5 scale-[1.02] shadow-xl shadow-[#7c3aed]/10"
+                  ? "border-[#7c3aed] bg-[#7c3aed]/5 md:scale-[1.02] shadow-xl shadow-[#7c3aed]/10"
                   : "border-[#2a2a2a] bg-[#1a1a1a]/50"
               }`}
             >
@@ -92,7 +92,7 @@ export default function Pricing() {
               </div>
               <p className="mt-3 text-sm text-[#a3a3a3]">{plan.description}</p>
 
-              <ul className="mt-6 space-y-3">
+              <ul className="mt-6 space-y-3 mb-8">
                 {plan.features.map((feature) => (
                   <li
                     key={feature}

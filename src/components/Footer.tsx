@@ -3,9 +3,9 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer className="border-t border-[#1a1a1a] py-12">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex flex-col sm:flex-row items-center gap-6">
+          <div className="flex flex-col items-center sm:items-start gap-4 sm:gap-6">
             <Link
               href="/"
               className="text-sm font-semibold text-[#f5f5f5]"
@@ -13,7 +13,7 @@ export default function Footer() {
               AgentOpenClaw
             </Link>
             <nav
-              className="flex flex-wrap items-center gap-4"
+              className="flex flex-wrap items-center justify-center sm:justify-start gap-3 sm:gap-4"
               aria-label="Footer navigation"
             >
               <a

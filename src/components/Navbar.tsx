@@ -22,10 +22,10 @@ export default function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
         <Link
           href="/"
-          className="flex items-center gap-2 text-lg font-bold tracking-tight text-[#f5f5f5] hover:text-[#7c3aed] transition-colors"
+          className="flex items-center gap-2 text-base sm:text-lg font-bold tracking-tight text-[#f5f5f5] hover:text-[#7c3aed] transition-colors"
           aria-label="AgentOpenClaw homepage"
         >
           <Image
@@ -38,7 +38,7 @@ export default function Navbar() {
           />
           AgentOpenClaw
         </Link>
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-3 sm:gap-6">
           <a
             href="#services"
             className="hidden sm:inline text-sm text-[#a3a3a3] hover:text-[#f5f5f5] transition-colors"
@@ -53,7 +53,7 @@ export default function Navbar() {
           </a>
           <a
             href="#waitlist"
-            className="px-4 py-2 text-sm font-medium rounded-lg bg-[#7c3aed] text-white hover:bg-[#6d28d9] transition-all hover:shadow-lg hover:shadow-[#7c3aed]/20"
+            className="px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium rounded-lg bg-[#7c3aed] text-white hover:bg-[#6d28d9] transition-all hover:shadow-lg hover:shadow-[#7c3aed]/20"
           >
             Join Waitlist
           </a>

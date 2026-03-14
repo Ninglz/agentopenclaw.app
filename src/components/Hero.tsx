@@ -39,7 +39,7 @@ function TerminalAnimation() {
         </div>
 
         {/* Terminal body */}
-        <div className="p-5 font-mono text-sm leading-relaxed min-h-[220px]">
+        <div className="p-4 sm:p-5 font-mono text-xs sm:text-sm leading-relaxed min-h-[180px] sm:min-h-[220px]">
           {terminalLines.slice(0, visibleLines).map((line, i) => (
             <div key={i} className="flex">
               {line.prompt && (
@@ -74,8 +74,8 @@ export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
       {/* Gradient orbs */}
-      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-[#7c3aed]/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-[#7c3aed]/3 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/4 w-[250px] sm:w-[500px] h-[250px] sm:h-[500px] bg-[#7c3aed]/5 rounded-full blur-[80px] sm:blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-[200px] sm:w-[400px] h-[200px] sm:h-[400px] bg-[#7c3aed]/3 rounded-full blur-[60px] sm:blur-[100px] pointer-events-none" />
 
       {/* Grid bg */}
       <div
@@ -87,7 +87,7 @@ export default function Hero() {
         }}
       />
 
-      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
         <div className="animate-fade-in-up">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#2a2a2a] bg-[#1a1a1a] text-xs text-[#a3a3a3] mb-8">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
@@ -95,13 +95,13 @@ export default function Hero() {
           </div>
         </div>
 
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] " style={{ animationDelay: '100ms' }}>
+        <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1]" style={{ animationDelay: '100ms' }}>
           Scale Your Business{" "}
           <span className="gradient-text">with Autonomous AI Agents</span>
         </h1>
 
         {/* AI SEO Definition Block - Highly extractable */}
-        <p className="mt-8 text-lg md:text-xl text-[#a3a3a3] max-w-2xl mx-auto leading-relaxed border-l-2 border-[#7c3aed] pl-4 text-left " style={{ animationDelay: '200ms' }}>
+        <p className="mt-6 sm:mt-8 text-base sm:text-lg md:text-xl text-[#a3a3a3] max-w-2xl mx-auto leading-relaxed border-l-2 border-[#7c3aed] pl-4 text-left" style={{ animationDelay: '200ms' }}>
           <strong className="text-white">AgentOpenClaw is an AI automation platform</strong> that designs, deploys, and manages intelligent agents capable of executing complex workflows—like SEO optimization, content generation, and prospect research—without human intervention.
         </p>
 
