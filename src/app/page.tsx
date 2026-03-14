@@ -1,65 +1,132 @@
-import Image from "next/image";
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import Services from "@/components/Services";
+import HowItWorks from "@/components/HowItWorks";
+import Pricing from "@/components/Pricing";
+import Waitlist from "@/components/Waitlist";
+import FAQ from "@/components/FAQ";
+import Footer from "@/components/Footer";
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://agentopenclaw.app/#organization",
+      name: "AgentOpenClaw",
+      url: "https://agentopenclaw.app",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://agentopenclaw.app/logo.png",
+      },
+      description:
+        "AgentOpenClaw provides custom AI agent services built on OpenClaw — including SEO agents, content agents, research agents and automation.",
+      contactPoint: {
+        "@type": "ContactPoint",
+        email: "ninglz2073@gmail.com",
+        contactType: "customer support",
+      },
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://agentopenclaw.app/#website",
+      url: "https://agentopenclaw.app",
+      name: "AgentOpenClaw",
+      publisher: { "@id": "https://agentopenclaw.app/#organization" },
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://agentopenclaw.app/#webpage",
+      url: "https://agentopenclaw.app",
+      name: "Agent OpenClaw Services | AI-Powered Agent Solutions",
+      description:
+        "AgentOpenClaw provides custom AI agent services built on OpenClaw — including SEO agents, content agents, research agents and automation. Join the waitlist today.",
+      isPartOf: { "@id": "https://agentopenclaw.app/#website" },
+      about: { "@id": "https://agentopenclaw.app/#organization" },
+      datePublished: "2026-03-14",
+      dateModified: "2026-03-14",
+    },
+    {
+      "@type": "SoftwareApplication",
+      name: "AgentOpenClaw",
+      applicationCategory: "BusinessApplication",
+      operatingSystem: "Web",
+      description:
+        "Custom AI agent platform that designs, deploys, and manages AI agents for SEO, content creation, research, email automation, and more.",
+      offers: {
+        "@type": "AggregateOffer",
+        lowPrice: "299",
+        highPrice: "799",
+        priceCurrency: "USD",
+        offerCount: "3",
+      },
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "What is AgentOpenClaw?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "AgentOpenClaw is an AI agent services platform built on OpenClaw. We design, configure, and deploy custom AI agents that automate business-critical tasks like SEO, content creation, research, and more.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "How do OpenClaw agent services work?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "You tell us your business goals, and our team configures a custom AI agent using the OpenClaw framework. The agent runs autonomously, executing tasks and delivering measurable results — no technical expertise required on your end.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "What types of AI agents can you build?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "We offer SEO agents, content agents, research agents, social media agents, email automation agents, and fully custom agents. Each is tailored to your specific workflows and objectives.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "How much do AI agent services cost?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Plans start at $299/month for a single AI agent. Our Pro plan at $799/month includes up to 5 agents. Enterprise pricing is custom. Early waitlist members get locked-in pricing and priority access.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Can I integrate an OpenClaw agent with my existing tools?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Yes. Our agents are designed to integrate with popular platforms and APIs. During onboarding, we configure your agent to work seamlessly with your existing tech stack.",
+          },
+        },
+      ],
+    },
+  ],
+};
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+    <>
+      <Navbar />
+      <main>
+        <Hero />
+        <Services />
+        <HowItWorks />
+        <Pricing />
+        <Waitlist />
+        <FAQ />
       </main>
-    </div>
+      <Footer />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+    </>
   );
 }
