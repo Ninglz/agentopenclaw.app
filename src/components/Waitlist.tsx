@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, FormEvent } from "react";
+import * as gtag from "../lib/gtag";
 
 export default function Waitlist() {
   const [email, setEmail] = useState("");
@@ -13,6 +14,11 @@ export default function Waitlist() {
     if (!email) return;
 
     setStatus("loading");
+    gtag.event({
+      action: "waitlist_attempt",
+      category: "conversion",
+      label: email,
+    });
 
     try {
       const res = await fetch("https://formsubmit.co/ajax/ninglz2073@gmail.com", {
@@ -30,6 +36,11 @@ export default function Waitlist() {
       if (res.ok) {
         setStatus("success");
         setEmail("");
+        gtag.event({
+          action: "waitlist_success",
+          category: "conversion",
+          label: "waitlist_signup",
+        });
       } else {
         setStatus("error");
       }

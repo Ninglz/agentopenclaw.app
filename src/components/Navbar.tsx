@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import * as gtag from "../lib/gtag";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -41,18 +42,21 @@ export default function Navbar() {
         <div className="flex items-center gap-3 sm:gap-6">
           <a
             href="#services"
+            onClick={() => gtag.event({ action: "nav_click", category: "navigation", label: "Services" })}
             className="hidden sm:inline text-sm text-[#a3a3a3] hover:text-[#f5f5f5] transition-colors"
           >
             Services
           </a>
           <a
             href="#pricing"
+            onClick={() => gtag.event({ action: "nav_click", category: "navigation", label: "Pricing" })}
             className="hidden sm:inline text-sm text-[#a3a3a3] hover:text-[#f5f5f5] transition-colors"
           >
             Pricing
           </a>
           <a
             href="#waitlist"
+            onClick={() => gtag.event({ action: "click_navbar_cta", category: "conversion", label: "Join Waitlist" })}
             className="px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium rounded-lg bg-[#7c3aed] text-white hover:bg-[#6d28d9] transition-all hover:shadow-lg hover:shadow-[#7c3aed]/20"
           >
             Join Waitlist

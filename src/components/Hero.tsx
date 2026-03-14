@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import * as gtag from "../lib/gtag";
 
 const terminalLines = [
   { prompt: "$ ", text: "openclaw init --agent seo-optimizer", delay: 0 },
@@ -108,6 +109,11 @@ export default function Hero() {
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 " style={{ animationDelay: '300ms' }}>
           <a
             href="#waitlist"
+            onClick={() => gtag.event({
+              action: "click_hero_cta",
+              category: "conversion",
+              label: "Start Automating Today"
+            })}
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 text-base font-medium rounded-lg bg-[#7c3aed] text-white hover:bg-[#6d28d9] transition-all hover:shadow-xl hover:shadow-[#7c3aed]/25 hover:scale-[1.02] active:scale-[0.98]"
           >
             Start Automating Today

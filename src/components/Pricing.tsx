@@ -1,3 +1,7 @@
+"use client";
+
+import * as gtag from "../lib/gtag";
+
 const plans = [
   {
     name: "Starter",
@@ -118,6 +122,12 @@ export default function Pricing() {
 
               <a
                 href="#waitlist"
+                onClick={() => gtag.event({
+                  action: "select_plan",
+                  category: "conversion",
+                  label: plan.name,
+                  value: plan.price.includes("$") ? parseFloat(plan.price.replace("$", "")) : 0
+                })}
                 className={`mt-auto block w-full text-center px-6 py-3 text-sm font-medium rounded-lg transition-all ${
                   plan.highlighted
                     ? "bg-[#7c3aed] text-white hover:bg-[#6d28d9] hover:shadow-lg hover:shadow-[#7c3aed]/20"
