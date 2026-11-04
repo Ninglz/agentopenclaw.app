@@ -29,8 +29,16 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Deploy on Cloudflare
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The production Worker is `agentopenclaw-app`. It serves the Next.js static export and handles `POST /api/waitlist`. Run the build, then deploy using Wrangler authenticated to the owning Cloudflare account.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm ci
+npm run build
+wrangler deploy
+```
+
+The mail binding sends only to the existing verified Cloudflare Email Routing destination. Verify a test submission and its inbox delivery after changes to the form or Worker.
+
+The Worker route needs the proxied apex A record. The record retains the Vercel origin as a rollback target. To direct requests back to Vercel, set that record to DNS only. The Vercel version uses the legacy FormSubmit integration.

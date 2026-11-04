@@ -17,23 +17,20 @@ export default function Waitlist() {
     gtag.event({
       action: "waitlist_attempt",
       category: "conversion",
-      label: email,
+      label: "waitlist_signup",
     });
 
     try {
-      const res = await fetch("https://formsubmit.co/ajax/ninglz2073@gmail.com", {
+      const res = await fetch("/api/waitlist", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
-        body: JSON.stringify({
-          email,
-          _subject: "New Waitlist Signup — AgentOpenClaw",
-        }),
+        body: JSON.stringify({ email }),
       });
 
-      if (res.ok) {
+      if (res.ok && (await res.json()).ok === true) {
         setStatus("success");
         setEmail("");
         gtag.event({
